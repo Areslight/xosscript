@@ -54,6 +54,7 @@ EOF
 kubectl create -f /tmp/helm.yaml
 helm init --service-account helm
 helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+cd ~
 mkdir -p cord
 cd cord
 git clone https://gerrit.opencord.org/helm-charts
