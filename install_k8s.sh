@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Installing docker..."
 sudo apt-get update
 sudo apt-get install -y software-properties-common
@@ -39,7 +41,8 @@ sudo swapoff -a
 
 echo "docker proxy"
 sudo mkdir -p /etc/systemd/system/docker.service.d
-cat<<EOF>/etc/systemd/system/docker.service.d/http-proxy.conf
+sudo touch /etc/systemd/system/docker.service.d/http-proxy.conf
+sudo bash -c "cat >/etc/systemd/system/docker.service.d/http-proxy.conf" <<EOF
 [Service]
 Environment="HTTP_PROXY=http://172.18.218.123:10809/"
 Environment="HTTPS_PROXY=http://172.18.218.123:10809/"
